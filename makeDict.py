@@ -13,17 +13,17 @@ words_ashung = {}
 
 with open("src/TDC_remove.txt", "r") as headWords:
     for line in headWords:
-        word = line.rstrip('་\n')
+        word = line.rstrip('་\n').rstrip('་')
         words_remove[word] = True
 
 with open("src/new_words.txt", "r") as headWords:
     for line in headWords:
-        word = line.rstrip('་\n')
+        word = line.rstrip('་\n').rstrip('་')
         custom_words[word] = True
 
 with open("src/custom_errors.txt", "r") as headWords:
     for line in headWords:
-        word = line.rstrip('\n')
+        word = line.rstrip('\n').rstrip('་')
         error_words[word] = True
 
 with open("src/custom_rules.txt", "r") as headWords:
@@ -33,9 +33,9 @@ with open("src/custom_rules.txt", "r") as headWords:
 
 with open("src/TDC.txt", "r") as headWords:
     for line in headWords:
-        nbTshegs = line.count('་')
+        word = line.rstrip('\n').rstrip('་')
+        nbTshegs = word.count('་')
         if nbTshegs < 4:
-            word = line.rstrip('\n')
             if word in words_remove:
                 continue
             words[nbTshegs+1][word] = True
