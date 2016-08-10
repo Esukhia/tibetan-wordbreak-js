@@ -59,15 +59,21 @@ with open("src/particles.txt", "r") as headWords:
         particles[line.rstrip('\n')] = True
         words[nbTshegs+1].pop(line.rstrip('\n'), None)
 
-print('error_words = '+json.dumps(error_words, ensure_ascii=False)+';\n')
-print('custom_rules = '+json.dumps(custom_rules, ensure_ascii=False)+';\n')
-print('custom_words = '+json.dumps(custom_words, ensure_ascii=False)+';\n')
-print('verbs_ashung = '+json.dumps(verbs_ashung, ensure_ascii=False)+';\n')
-print('words_ashung = '+json.dumps(words_ashung, ensure_ascii=False)+';\n')
-print('verbs = '+json.dumps(verbs, ensure_ascii=False)+';\n')
-print('particles = '+json.dumps(particles, ensure_ascii=False)+';\n')
-print('words[1] = '+json.dumps(words[1], ensure_ascii=False)+';\n')
-print('words[2] = '+json.dumps(words[2], ensure_ascii=False)+';\n')
-print('words[3] = '+json.dumps(words[3], ensure_ascii=False)+';\n')
-print('words[4] = '+json.dumps(words[4], ensure_ascii=False)+';\n')
-print('main();\n')
+data = ''
+data += 'error_words = '+json.dumps(error_words, ensure_ascii=False)+';\n\n'
+data += 'custom_rules = '+json.dumps(custom_rules, ensure_ascii=False)+';\n\n'
+data += 'custom_words = '+json.dumps(custom_words, ensure_ascii=False)+';\n\n'
+data += 'verbs_ashung = '+json.dumps(verbs_ashung, ensure_ascii=False)+';\n\n'
+data += 'words_ashung = '+json.dumps(words_ashung, ensure_ascii=False)+';\n\n'
+data += 'verbs = '+json.dumps(verbs, ensure_ascii=False)+';\n\n'
+data += 'particles = '+json.dumps(particles, ensure_ascii=False)+';\n\n'
+data += 'words[1] = '+json.dumps(words[1], ensure_ascii=False)+';\n\n'
+data += 'words[2] = '+json.dumps(words[2], ensure_ascii=False)+';\n\n'
+data += 'words[3] = '+json.dumps(words[3], ensure_ascii=False)+';\n\n'
+data += 'words[4] = '+json.dumps(words[4], ensure_ascii=False)+';\n\n'
+data += 'main();\n'
+
+with open('cutWords.js', 'w', -1, 'utf-8') as f:
+    with open('cutWords.code', 'r', -1, 'utf-8') as g:
+        f.write(g.read()+'\n')
+    f.write(data)
