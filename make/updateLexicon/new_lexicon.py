@@ -33,13 +33,14 @@ for f in os.listdir(in_path):
 new = list(set(new))
 
 extant_lexicon = []
-extant_lexicon.extend(open_file('../src/TDC.txt').split('\n'))
-extant_lexicon.extend(open_file('../src/verbs.txt').split('\n'))
-extant_lexicon.extend(open_file('../src/particles.txt').split('\n'))
-extant_lexicon.extend(open_file('../src/new_words.txt').split('\n'))
+extant_lexicon.extend(open_file('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/TDC.txt').split('\n'))
+extant_lexicon.extend(open_file('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/verbs.txt').split('\n'))
+extant_lexicon.extend(open_file('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/particles.txt').split('\n'))
+for f in os.listdir('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/new_entries/'):
+    extant_lexicon.extend(open_file('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/new_entries/'+f).split('\n'))
 
 new_entries = [n for n in new if n not in extant_lexicon]
-new_entries = tib_sort(new_entries)
-write_file(out_path+'new_entries.txt', '\n'.join(new_entries))
+
+write_file(out_path+'new_entries.txt', '\n'.join(tib_sort(new_entries)))
 
 write_file(out_path+'all_entries.txt', '\n'.join(tib_sort(new)))

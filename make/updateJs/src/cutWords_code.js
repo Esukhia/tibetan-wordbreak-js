@@ -10,13 +10,13 @@ if (typeof app !== 'undefined') {
 var debug = true;
 
 var charsToInsert = {
-   'TDC': ' ',
-   'custom': ' ',
-   'error': ' ',
+   'TDC': ' ',
+   'custom': ' ',
+   'error': '#',
    'unknown': '#',
-   'suffix': ' ',
-   'particle': ' ',
-   'verb': ' ',
+   'suffix': ' ',
+   'particle': '',
+   'verb': ' ',
 };
 
 var charsToInsertRev = {};
