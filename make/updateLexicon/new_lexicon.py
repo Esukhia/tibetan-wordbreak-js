@@ -28,7 +28,7 @@ for f in os.listdir(in_path):
 
     lexicon = []
     for t in text:
-        lexicon.extend([u.strip('་')+'་' for u in t.split(' ')])
+        lexicon.extend([u.rstrip('་') + '་' for u in t.split(' ') if u.rstrip('་') != ''])
     new.extend(lexicon)
 new = list(set(new))
 
