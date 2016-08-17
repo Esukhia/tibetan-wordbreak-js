@@ -92,7 +92,7 @@ with open('cutWords.html', 'w', -1, 'utf-8') as f:
     f.write(''' </script>
 </head>
 <body>
-  <button id="button" onclick="cutWordsInText()" style="font-size:20pt;width:150pt;">མིང་ཚིག་ བཏུབ།</button><br>
+  <button id="button" onclick="cutWordsInText()" style="font-size:20pt;width:150pt;">ཚིག་ གཏུབ།</button><br>
   <textarea id="text" style="width:100%;height:600pt;font-size:18pt;"></textarea>
 </body></html>''')
 
