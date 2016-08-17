@@ -96,7 +96,7 @@ with open('cutWords.html', 'w', -1, 'utf-8') as f:
   <textarea id="text" style="width:100%;height:600pt;font-size:18pt;"></textarea>
 </body></html>''')
 
-with open('cutWords.js', 'w', -1, 'utf-8') as f:
+with open('make/cutWords.js', 'w', -1, 'utf-8') as f:
     with open('make/updateJs/src/cutWords_code.js', 'r', -1, 'utf-8') as g:
         f.write(g.read()+'\n')
     f.write(data)
