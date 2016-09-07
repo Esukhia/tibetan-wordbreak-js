@@ -7,7 +7,7 @@ out_path = 'output/'
 
 new = []
 for f in os.listdir(in_path):
-    content = open_file(in_path+f).split('\n')
+    content = open_file(in_path+f).replace('༌', '་').split('\n')
     content = [a.strip() for a in content if a != '']
     # find all non-tibetan characters
     to_delete = []
@@ -16,7 +16,7 @@ for f in os.listdir(in_path):
             if char not in to_delete and non_tib_chars(char):
                 to_delete.append(char)
     # add punctuation to be deleted
-    to_delete.extend(['།', '༎', '༄', '༅'])
+    to_delete.extend(['།', '༎', '༄', '༅', '༑'])
 
     # replace them with spaces
     text = []
@@ -28,7 +28,7 @@ for f in os.listdir(in_path):
 
     lexicon = []
     for t in text:
-        lexicon.extend([u.rstrip('་') + '་' for u in t.split(' ') if u.rstrip('་') != ''])
+        lexicon.extend([u.strip('་')+'་' for u in t.split(' ') if u.strip('་') != ''])
     new.extend(lexicon)
 new = list(set(new))
 
