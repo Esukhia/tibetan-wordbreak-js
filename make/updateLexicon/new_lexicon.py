@@ -34,17 +34,17 @@ new = list(set(new))
 
 oral_corpus_num = 0
 extant_lexicon = []
-extant_lexicon.extend(open_file('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/TDC.txt').split('\n'))
-extant_lexicon.extend(open_file('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/verbs.txt').split('\n'))
-extant_lexicon.extend(open_file('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/particles.txt').split('\n'))
-for f in os.listdir('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/new_entries/'):
-    extant_lexicon.extend(open_file('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/new_entries/'+f).split('\n'))
+extant_lexicon.extend(open_file('../updateJs/src/TDC.txt').split('\n'))
+extant_lexicon.extend(open_file('../updateJs/src/verbs.txt').split('\n'))
+extant_lexicon.extend(open_file('../updateJs/src/particles.txt').split('\n'))
+for f in os.listdir('../updateJs/src/new_entries/'):
+    extant_lexicon.extend(open_file('../updateJs/src/new_entries/'+f).split('\n'))
     number = int(f.split('.')[0].split('_')[2])
     if number > oral_corpus_num:
         oral_corpus_num = number
 
 new_entries = [n for n in new if n not in extant_lexicon]
 
+write_file(out_path+'all_entries{}.txt'.format(oral_corpus_num+1), '\n'.join(tib_sort(new)))
 if new_entries:
-    write_file('/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateJs/src/new_entries/oral_corpus_{}.txt'.format(str(oral_corpus_num+1)), '\n'.join(tib_sort(new_entries)))
-write_file(out_path+'all_entries.txt', '\n'.join(tib_sort(new)))
+    write_file('../updateJs/src/new_entries/oral_corpus_{}.txt'.format(oral_corpus_num+1), '\n'.join(tib_sort(new_entries)))

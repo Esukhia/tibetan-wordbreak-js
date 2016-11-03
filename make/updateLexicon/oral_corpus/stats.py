@@ -81,7 +81,7 @@ def processing_corpus(corpus_path):
         if section == '':
             section = 'ཁུངས་མེད།'
         # finding the name of the person
-        person = re.sub(r'\([0-9]+\).txt', '', file_name).strip()
+        person = re.sub(r'[0-9]* *\([0-9]+\).txt', '', file_name).strip()
 
         # B. initiating the entries in dicts if missing for the current file
         # creating an entry in corpus_frequencies{} if it does not exist
@@ -159,7 +159,7 @@ def write_to_xlsx(output_name, origin, total_frequency, frequencies):
     workbook.close()
 
 corpus_sections = ['Amdo', 'Bodjong', 'Khabda', 'Khampa']
-corpus_path = '/home/drupchen/PycharmProjects/tibetan-wordbreak-js/make/updateLexicon/input/'
+corpus_path = '../input/'
 # processing the corpus
 corpus_frequencies, corpus_total_frequency, corpus_origin, persons_frequencies, persons_total_frequency, persons_origin = processing_corpus(corpus_path)
 
