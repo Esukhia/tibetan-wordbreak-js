@@ -47,4 +47,4 @@ new_entries = [n for n in new if n not in extant_lexicon]
 
 write_file(out_path+'all_entries{}.txt'.format(oral_corpus_num+1), '\n'.join(tib_sort(new)))
 if new_entries:
-    write_file('../updateJs/src/new_entries/oral_corpus_{}.txt'.format(oral_corpus_num+1), '\n'.join(tib_sort(new_entries)))
+    write_file('../updateJs/src/new_entries/recordings_{}.txt'.format(oral_corpus_num+1), '\n'.join(tib_sort(new_entries)))
